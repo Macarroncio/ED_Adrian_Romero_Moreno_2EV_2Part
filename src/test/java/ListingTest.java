@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-public class ListingTests {
+public class ListingTest {
     public static void main(String[] args) {
         // Set up Chrome driver
         System.setProperty("webdriver.chrome.driver", "src/test/java/Drivers/chromedriver.exe");
@@ -47,7 +47,7 @@ public class ListingTests {
 
 
         // Close the browser
-        webDriver.quit();
+        //webDriver.quit();
     }
 }
 
