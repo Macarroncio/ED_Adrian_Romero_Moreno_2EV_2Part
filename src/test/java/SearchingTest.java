@@ -7,39 +7,40 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SearchingTest {
+    public static void main(String[] args) {
 
-    @Test
-    public void searchTest() {
-        // Set up Chrome driver
-        System.setProperty("webdriver.chrome.driver", "src/test/java/Drivers/chromedriver.exe");
-        WebDriver webDriver = new ChromeDriver();
 
-        try {
-            // Accessing carrefour
-            webDriver.get("https://www.carrefour.es");
+            // Set up Chrome driver
+            System.setProperty("webdriver.chrome.driver", "src/test/java/Drivers/chromedriver.exe");
+            WebDriver webDriver = new ChromeDriver();
 
-            // Reject cookies
-            WebElement cookieRejectButton = webDriver.findElement(By.id("onetrust-reject-all-handler"));
-            cookieRejectButton.click();
+            try {
+                // Accessing carrefour
+                webDriver.get("https://www.carrefour.es");
 
-            //Locating and using the searchbar
-            WebElement searchBar = webDriver.findElement(By.id("search-input"));
-            searchBar.click();
-            searchBar = webDriver.findElement(By.cssSelector("input[class='ebx-search-box__input ebx-search-box__input-query']"));
+                // Reject cookies
+                WebElement cookieRejectButton = webDriver.findElement(By.id("onetrust-reject-all-handler"));
+                cookieRejectButton.click();
 
-            String searchInput = "pan";
-            searchBar.sendKeys(searchInput);
-            searchBar.sendKeys(Keys.ENTER);
+                //Locating and using the searchbar
+                WebElement searchBar = webDriver.findElement(By.id("search-input"));
+                searchBar.click();
+                searchBar = webDriver.findElement(By.cssSelector("input[class='ebx-search-box__input ebx-search-box__input-query']"));
 
-            // Get the current URL
-            String currentUrl = webDriver.getCurrentUrl();
+                String searchInput = "pan";
+                searchBar.sendKeys(searchInput);
+                searchBar.sendKeys(Keys.ENTER);
 
-            // Assert that the search input appears partially in the URL
-            Assertions.assertTrue(currentUrl.contains(searchInput), "Search input is not present in the URL.");
+                // Get the current URL
+                String currentUrl = webDriver.getCurrentUrl();
 
-        } finally {
-            // Quit the WebDriver
-            webDriver.quit();
+                // Assert that the search input appears partially in the URL
+                Assertions.assertTrue(currentUrl.contains(searchInput), "Search input is not present in the URL.");
+
+            } finally {
+                // Quit the WebDriver
+                //webDriver.quit();
+            }
         }
-    }
+
 }

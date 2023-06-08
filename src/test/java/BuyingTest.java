@@ -9,8 +9,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BuyingTest {
-    @Test
-    public void searchTest() {
+
+    public static void main(String[] args) {
         // Set up Chrome driver
         System.setProperty("webdriver.chrome.driver", "src/test/java/Drivers/chromedriver.exe");
         WebDriver webDriver = new ChromeDriver();
